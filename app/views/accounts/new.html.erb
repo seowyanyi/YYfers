@@ -1,0 +1,40 @@
+<div class="login-box">
+  <div class="login-logo">
+    <div><b>YY</b>fers</div>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Sign Up</p>
+
+    <%= form_for(@account) do |f| %>
+      <%= render 'shared/error_messages' %>
+      <div class="form-group has-feedback">
+        <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>        
+      </div>
+      <div class="form-group has-feedback">
+        <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>        
+      </div>
+      <div class="form-group has-feedback">
+        <%= f.password_field :password_confirmation, placeholder: "Confirm password", class: "form-control" %>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>        
+      </div>
+
+      <div class="row">
+        <div class="col-xs-8"> </div>      
+        <div class="col-xs-4">
+          <%= f.submit "Sign Up", class: "btn btn-primary btn-block btn-flat" %>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+  <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
