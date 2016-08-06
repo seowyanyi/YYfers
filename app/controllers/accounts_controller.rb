@@ -7,6 +7,7 @@ class AccountsController < ApplicationController
     @account = Account.new(account_params)
 
     if @account.save
+      log_in @account
       redirect_to dashboard_path
     else
       render 'new'      
