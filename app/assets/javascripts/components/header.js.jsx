@@ -1,4 +1,18 @@
 var Header = React.createClass({
+  signOut: function() {
+    $.ajax({
+        url: '/logout',
+        type: 'DELETE',
+        success: function(result) {
+            // Do something with the result
+            console.log(result)
+        },
+        error: function(err) {
+          console.log(err)
+        }
+    });
+
+  },
 
   render: function() {
     return (
@@ -47,7 +61,7 @@ var Header = React.createClass({
                   <a href="#" className="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div className="pull-right">
-                  <a href="#" className="btn btn-default btn-flat">Sign out</a>
+                  <a onClick={this.signOut} className="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
