@@ -1,7 +1,46 @@
 import React, { Component, PropTypes } from 'react';
 import {floatToSGD} from '../helper'
+import {Modal, Button, FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
+
+function FieldGroup({ id, label, ...props }) {
+  return (
+    <FormGroup controlId={id}>
+      <ControlLabel>{label}</ControlLabel>
+      <FormControl {...props} />
+    </FormGroup>
+  );
+}
 
 class Sidebar extends Component {
+  constructor(props, context) {
+    super(props, context)
+    this.state = {
+      showModal: false,
+      amount: '',
+      desc: ''
+    }
+  }
+
+  showModal() {
+    this.setState({ showModal: true });
+  }
+
+  hideModal() {
+    this.setState({ showModal: false });    
+  }
+
+  handleAmountChange(e) {
+    this.setState({ amount: e.target.value });    
+  }
+
+  handleDescChange(e) {
+    this.setState({ desc: e.target.value });    
+  }
+
+  addMoney() {
+    this.hideModal()
+  }
+
   render() {
     const {app} = this.props;
     return (
@@ -19,7 +58,42 @@ class Sidebar extends Component {
                 <p>{app.name}</p>
                 <p>Balance: {floatToSGD(app.balance)}</p>
               </div>
+              <button onClick={this.showModal.bind(this)} className="add-money btn btn-success btn-block btn-flat">Add more $$</button>   
             </div>
+            <Modal show={this.state.showModal} onHide={this.hideModal.bind(this)}>
+              <Modal.Header closeButton>
+                <Modal.Title>Free money</Modal.Title>
+              </Modal.Header>
+          
+              <Modal.Body>              
+                <form>       
+                  <FormGroup controlId="formControlsSelectMultiple">
+                    <ControlLabel>Select bank</ControlLabel>
+                    <FormControl componentClass="select">
+                      <option value="ocbc">OCBC</option>
+                      <option value="mbb">MBB</option>
+                      <option value="dbs">DBS</option>
+                    </FormControl>
+                  </FormGroup>                       
+                  <FieldGroup
+                    type="number"
+                    step="any"
+                    label="Amount"
+                    onChange={this.handleAmountChange.bind(this)}
+                  />
+                  <FieldGroup
+                    type="text"
+                    label="Description"
+                    onChange={this.handleDescChange.bind(this)}                    
+                  />                     
+                </form>
+              </Modal.Body>
+
+              <Modal.Footer>
+                <Button bsStyle="success" onClick={this.addMoney.bind(this)}>Simulate transfer</Button>                
+                <Button onClick={this.hideModal.bind(this)}>Close</Button>
+              </Modal.Footer>
+            </Modal>
 
 
             {/* Sidebar Menu */}
