@@ -1,4 +1,3 @@
-// Left side column. contains the logo and sidebar
 import React, { Component, PropTypes } from 'react';
 import {floatToSGD} from '../helper'
 

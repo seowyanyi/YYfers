@@ -1,4 +1,3 @@
-// Content Wrapper. Contains page content
 import React, { Component, PropTypes } from 'react';
 
 class Content extends Component {

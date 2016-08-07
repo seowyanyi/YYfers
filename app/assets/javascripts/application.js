@@ -18,4 +18,3 @@
 //= require turbolinks
 //= require adminLTE
 //= require components
-//= require_tree .

@@ -76,4 +76,12 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # Define NODE_ENV to be used with envify
+  #
+  # defaults to Rails.env
+  config.browserify_rails.node_env = "production"
+
+  # cache browserification of CommonJS modules
+  config.browserify_rails.use_browserifyinc = true
 end
