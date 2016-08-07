@@ -62,10 +62,7 @@ class Header extends Component {
               </li>
               {/* Menu Footer*/}
               <li className="user-footer">
-                <div className="pull-left">
-                  <a href="#" className="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div className="pull-right">
+                <div>
                   <a onClick={this.signOut} className="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
