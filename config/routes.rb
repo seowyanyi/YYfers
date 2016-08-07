@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :transactions
   root    'dashboard#index'
   get     '/accounts',    to: 'accounts#new'
   get     '/signup',      to: 'accounts#new'
