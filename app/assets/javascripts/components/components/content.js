@@ -1,5 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 
+function getPageHeader() {
+  if (window.location.pathname.indexOf("paylinks")!== -1) {
+    return "Paylinks"
+  } else if (window.location.pathname.indexOf("transactions")!== -1){
+    return "Transactions"
+  } else {
+    return "Home"
+  }
+}
+
 class Content extends Component {
   render() {
     return (
@@ -7,8 +17,7 @@ class Content extends Component {
     {/* Content Header (Page header) */}
     <section className="content-header">
       <h1>
-        Page Header
-        <small>Optional description</small>
+        {getPageHeader()}
       </h1>
 
     </section>

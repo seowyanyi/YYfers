@@ -2,6 +2,10 @@ require 'sessions_helper'
 class TransactionsController < ApplicationController
   include SessionsHelper
   respond_to :json
+
+  def index
+    @account = current_account
+  end
   
   def create
     @transaction = Transaction.new(trans_params)  

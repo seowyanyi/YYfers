@@ -26,7 +26,7 @@ class Header extends Component {
     {/* Logo */}
     <div className="logo">
       {/* mini logo for sidebar mini 50x50 pixels */}
-      <span className="logo-mini"><b>YY</b>fers</span>
+      <span className="logo-mini"><a href="/"><b>YY</b>fers</a></span>
       {/* logo for regular state and mobile devices */}
       <span className="logo-lg"><b>YY</b>fers</span>
     </div>
