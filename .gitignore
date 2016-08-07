@@ -18,3 +18,6 @@
 
 # Ignore Mac DS_Store
 .DS_Store
+
+# Ignore node packages
+node_modules

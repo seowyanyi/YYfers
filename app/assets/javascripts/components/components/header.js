@@ -1,20 +1,25 @@
-var Header = React.createClass({
-  signOut: function() {
+import React, { Component, PropTypes } from 'react';
+
+class Header extends Component {
+  signOut() {
     $.ajax({
         url: '/logout',
         type: 'DELETE',
         success: function(result) {
-            // Do something with the result
-            console.log(result)
         },
         error: function(err) {
           console.log(err)
         }
     });
 
-  },
+  }
 
-  render: function() {
+  render() {
+    const {app} = this.props;
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"]
+    let date = new Date(app.created_at)
+    let dateString = monthNames[date.getMonth()] + " " + date.getFullYear()
     return (
       
   <header className="main-header">
@@ -43,7 +48,7 @@ var Header = React.createClass({
               {/* The user image in the navbar*/}
               <img src="user-outline.png" className="user-image" alt="User Image" />
               {/* hidden-xs hides the username on small devices so only the image appears. */}
-              <span className="hidden-xs">Alexander Pierce</span>
+              <span className="hidden-xs">{app.name}</span>
             </a>
             <ul className="dropdown-menu">
               {/* The user image in the menu */}
@@ -51,8 +56,8 @@ var Header = React.createClass({
                 <img src="user-outline.png" className="img-circle" alt="User Image" />
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {app.name}
+                  <small>Member since {dateString}</small>
                 </p>
               </li>
               {/* Menu Footer*/}
@@ -73,4 +78,6 @@ var Header = React.createClass({
   </header>
       )
   }
-});
+}
+
+export default Header;

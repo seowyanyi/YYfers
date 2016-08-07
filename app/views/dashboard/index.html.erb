@@ -1,1 +1,5 @@
-<%= react_component 'Dashboard', account: @current_account %>
+<%= react_component 'Root', 
+  balance: @current_account.balance, 
+  email:@current_account.email, 
+  name:@current_account.name,
+  created_at:@current_account.created_at %>

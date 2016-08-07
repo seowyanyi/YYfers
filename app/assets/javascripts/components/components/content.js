@@ -1,7 +1,8 @@
 // Content Wrapper. Contains page content
-var Content = React.createClass({
+import React, { Component, PropTypes } from 'react';
 
-  render: function() {
+class Content extends Component {
+  render() {
     return (
   <div className="content-wrapper">
     {/* Content Header (Page header) */}
@@ -24,4 +25,7 @@ var Content = React.createClass({
 
       )
   }
-});
+}
+
+
+export default Content;

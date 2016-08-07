@@ -1,6 +1,7 @@
-var Footer = React.createClass({
+import React, { Component, PropTypes } from 'react';
 
-  render: function() {
+class Footer extends Component {
+  render() {
     return (
   <footer className="main-footer">
     {/* To the right */}
@@ -13,4 +14,7 @@ var Footer = React.createClass({
 
       )
   }
-});
+}
+
+
+export default Footer;

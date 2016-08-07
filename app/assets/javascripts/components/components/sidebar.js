@@ -1,7 +1,10 @@
 // Left side column. contains the logo and sidebar
-var Sidebar = React.createClass({
+import React, { Component, PropTypes } from 'react';
+import {floatToSGD} from '../helper'
 
-  render: function() {
+class Sidebar extends Component {
+  render() {
+    const {app} = this.props;
     return (
       <aside className="main-sidebar">
 
@@ -14,7 +17,8 @@ var Sidebar = React.createClass({
                 <img src="user-outline.png" className="img-circle" alt="User Image" />
               </div>
               <div className="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>{app.name}</p>
+                <p>Balance: {floatToSGD(app.balance)}</p>
               </div>
             </div>
 
@@ -44,4 +48,6 @@ var Sidebar = React.createClass({
 
       )
   }
-});
+}
+
+export default Sidebar;
