@@ -1,3 +1,5 @@
 const INIT_APP = 'INIT_APP';
+const UPDATE_APP = 'UPDATE_APP';
+const INCREASE_BAL = 'INCREASE_BAL';
 
-export {INIT_APP};
+export {INIT_APP, UPDATE_APP, INCREASE_BAL};

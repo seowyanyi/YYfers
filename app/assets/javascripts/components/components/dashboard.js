@@ -9,7 +9,7 @@ class Dashboard extends Component {
     return (
       <div className="hold-transition skin-blue sidebar-mini wrapper">
         <Header app={this.props.app} />
-        <Sidebar app={this.props.app}/>
+        <Sidebar app={this.props.app} addMoney={this.props.addMoney}/>
         <Content />
         <Footer />
       </div>

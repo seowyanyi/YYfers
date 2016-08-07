@@ -33,11 +33,12 @@ gem "font-awesome-rails"
 
 gem 'ionicons-rails'
 
-gem "browserify-rails"
+gem 'browserify-rails'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'responders'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

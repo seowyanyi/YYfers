@@ -17,7 +17,8 @@ class Sidebar extends Component {
     this.state = {
       showModal: false,
       amount: '',
-      desc: ''
+      desc: '',
+      bank: 'OCBC'
     }
   }
 
@@ -37,7 +38,20 @@ class Sidebar extends Component {
     this.setState({ desc: e.target.value });    
   }
 
-  addMoney() {
+  handleBankChange(e) {
+    this.setState({ bank: e.target.value });        
+  }
+
+  simulateTransfer() {
+    let data = {
+      transaction: {
+        trans_type: this.state.bank + " Transfer",
+        description: this.state.desc,
+        is_positive: true,
+        amount: parseFloat(this.state.amount)        
+      }
+    }
+    this.props.addMoney(data)
     this.hideModal()
   }
 
@@ -66,13 +80,14 @@ class Sidebar extends Component {
               </Modal.Header>
           
               <Modal.Body>              
-                <form>       
+                <form>  
+                  <input type='hidden' name='authenticity_token' value={app.csrf_token} />     
                   <FormGroup controlId="formControlsSelectMultiple">
                     <ControlLabel>Select bank</ControlLabel>
-                    <FormControl componentClass="select">
-                      <option value="ocbc">OCBC</option>
-                      <option value="mbb">MBB</option>
-                      <option value="dbs">DBS</option>
+                    <FormControl onClick={this.handleBankChange.bind(this)} componentClass="select">
+                      <option value="OCBC">OCBC</option>
+                      <option value="MBB">MBB</option>
+                      <option value="DBS">DBS</option>
                     </FormControl>
                   </FormGroup>                       
                   <FieldGroup
@@ -90,11 +105,10 @@ class Sidebar extends Component {
               </Modal.Body>
 
               <Modal.Footer>
-                <Button bsStyle="success" onClick={this.addMoney.bind(this)}>Simulate transfer</Button>                
+                <Button bsStyle="success" onClick={this.simulateTransfer.bind(this)}>Simulate transfer</Button>                
                 <Button onClick={this.hideModal.bind(this)}>Close</Button>
               </Modal.Footer>
             </Modal>
-
 
             {/* Sidebar Menu */}
             <ul className="sidebar-menu">

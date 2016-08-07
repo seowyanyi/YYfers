@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.bootstrap-growl.min
 //= require bootstrap-sprockets
 //= require react
 //= require react_ujs

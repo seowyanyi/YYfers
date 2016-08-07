@@ -13,7 +13,8 @@ export default class Root extends Component {
       balance: parseFloat(this.props.balance),
       email: this.props.email,
       name: this.props.name,
-      created_at: this.props.created_at
+      created_at: this.props.created_at,
+      csrf_token: this.props.csrf_token
     }));
   }
   render() {
