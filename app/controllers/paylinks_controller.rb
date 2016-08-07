@@ -1,0 +1,2 @@
+class PaylinksController < ApplicationController
+end
