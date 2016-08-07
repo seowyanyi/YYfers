@@ -21,3 +21,6 @@
 
 # Ignore node packages
 node_modules
+
+# Ignore precompiled assets
+public/assets
